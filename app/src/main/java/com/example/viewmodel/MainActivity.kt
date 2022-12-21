@@ -1,5 +1,6 @@
 package com.example.viewmodel
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +11,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        btnNextActivity.setOnClickListener {
+            val intent = Intent(this, NextCounter::class.java)
+            startActivity(intent)
+        }
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         btnIncrement.setOnClickListener {
